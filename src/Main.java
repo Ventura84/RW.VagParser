@@ -54,7 +54,6 @@ public class Main {
                     byte[] fileContent = new byte[inFile.available()];
                     inFile.read(fileContent);
                     fileContents.add(new String (fileContent, cp866));
-                    //fileContents.add(new String(fileContent, ));
                     // VERSION UPDATE
                 }
             }
@@ -81,7 +80,7 @@ public class Main {
 
 
 
-        System.out.println("\nCREATING OUTPUT FILE");
+        System.out.println("\nCREATING OUTPUT FILE TXT");
         File outputFile = new File("out.txt");
         FileOutputStream outFile = new FileOutputStream(outputFile, true);
 
@@ -98,11 +97,11 @@ public class Main {
         System.out.println("\nREADING CARGO_CODES...");
         String[] cargoCodesAr = readFileToArray("cargo_codes.txt");
 
-        List<String> fileContents = readFilesForSearching("FILES");
+        List<String> fileContents = readFilesForSearching("C:/FILES");
 
-        System.out.println("\nSTART SEARCHING PROCESS");
-        System.out.println("\tWAIT PLEASE...");
-        System.out.println("\t...TAKE A SMOKE BREAK");
+        System.out.println("\nSTART SEARCHING PROCESS\n");
+        System.out.println("\t\tWAIT PLEASE...");
+        System.out.println("\t\t...TAKE A SMOKE BREAK");
 
 
         List<Thread> threadList = new ArrayList<>();
@@ -123,6 +122,17 @@ public class Main {
 
 
         System.out.println("\nSEARCHING FINISHED\n");
+
+
+        for (List<List<String>> operations : mainOperations) {
+            for (List<String> operation : operations) {
+                if (operation == null || operation.size() <= 0 ){
+                    System.out.println("FOUNDED !");
+
+                }
+            }
+        }
+
 
         System.out.println("WRITING DATA INTO FILES...\n");
 

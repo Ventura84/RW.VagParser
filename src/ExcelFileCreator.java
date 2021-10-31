@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 public class ExcelFileCreator {
 
 
@@ -18,10 +16,7 @@ public class ExcelFileCreator {
 
         sheet.createFreezePane( 0, 1);
         Row header = sheet.createRow(0);
-        //Row header = sheet.createFreezePane(2, 2);
 
-
-        // Style for header font
         CellStyle headerCellStyle = workbook.createCellStyle();
         headerCellStyle.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
         headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -32,11 +27,6 @@ public class ExcelFileCreator {
         headerCellStyle.setFont(font);
 
 
-
-
-
-
-        // Creating header
         Cell cell = header.createCell(0);
         cell.setCellValue("№ Вагона");
         cell.setCellStyle(headerCellStyle);
@@ -105,11 +95,6 @@ public class ExcelFileCreator {
         cell.setCellValue("Контент");
         cell.setCellStyle(headerCellStyle);
 
-//        sheet.addMergedRegion(new CellRangeAddress(0, 0, 8,17));
-//        cell = header.createCell(8);
-//        cell.setCellValue("Доп. инфо.");
-//        cell.setCellStyle(headerCellStyle);
-
         System.out.println("HEADER CREATED FOR SHEET " + sheet.getSheetName());
 
     }
@@ -125,18 +110,11 @@ public class ExcelFileCreator {
 
         CellStyle cellStyleForRightAligment = workbook.createCellStyle();
         cellStyleForRightAligment.setAlignment(HorizontalAlignment.RIGHT);
-        //cellStyleForRightAligment.setDataFormat((short)4);
         cellStyleForRightAligment.setFont(font);
-
-//        CellStyle totalAmountStyle = workbook.createCellStyle();
-//        totalAmountStyle.setDataFormat((short)4);
-
-//        CellStyle doubleStyle = workbook.createCellStyle();
-//        doubleStyle.setDataFormat(workbook.createDataFormat().getFormat("#,##0.#######"));
 
         int nextRow;
 
-        int i = 1;
+
 
         Sheet sheet;
         String stForm = "";
@@ -145,12 +123,15 @@ public class ExcelFileCreator {
         int stFormCodeLen;
         int stDestCodeLen;
 
+
+
         for (List<List<String>> operations : mainOperations) {
+
             for (List<String> operation : operations) {
 
                 sheet = workbook.getSheet(operation.get(1));
                 nextRow = sheet.getLastRowNum();
-                Row dataRow = sheet.createRow(nextRow + i);
+                Row dataRow = sheet.createRow(nextRow + 1);
 
 
                 if(operation.get(1).equals(sheet.getSheetName())){
@@ -175,14 +156,15 @@ public class ExcelFileCreator {
 
                     for (String st : stanCodesAr) {
                         stDestCodeLen = operation.get(8).length();
-                        if(st.substring(0, stDestCodeLen).equals(operation.get(8))){
+
+                        if(st.substring(0, stDestCodeLen).equals(operation.get(8)) && stDestCodeLen > 0){
                             stDest = st.substring(6);
                             break;
                         } else {
                             stDest = "";
                         }
                     }
-                    System.out.println(operation);
+
                     dataRow.createCell(0).setCellValue(operation.get(0));
                     dataRow.getCell(0).setCellStyle(cellStyleDefault);
 
@@ -199,7 +181,6 @@ public class ExcelFileCreator {
                     dataRow.getCell(4).setCellStyle(cellStyleDefault);
 
                     dataRow.createCell(5).setCellValue(operation.get(4));
-                    System.out.println(operation.get(4));
                     dataRow.getCell(5).setCellStyle(cellStyleDefault);
 
                     dataRow.createCell(6).setCellValue(operation.get(5));

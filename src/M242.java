@@ -5,36 +5,35 @@ public class M242 {
 
     private List<String> operationDataList = new ArrayList<>();
 
-    public List<String> m242Parsing(String text, String nv, String nvOwner) {
-        //System.out.println(text);
+    public List<String> m242Parsing(String text, String nv, String nvOwner, Fields fields) {
 
         String[] textArray = text.split(":");
         String[] textArrayItem = textArray[1].split(" ");
 
-        VagonHandlerThread.stForm = textArrayItem[1];
-        VagonHandlerThread.pNum = "";
-        VagonHandlerThread.pInd = "---- x ----";
-        VagonHandlerThread.pIndInt = "---- x ----";
-        VagonHandlerThread.pInd2Zeros = "---- xx ----";
-        VagonHandlerThread.pInd3Zeros = "---- xxx ----";
-        VagonHandlerThread.opDate = textArrayItem[3] + "." + textArrayItem[4];
-        VagonHandlerThread.opTime = textArrayItem[5] + ":" + textArrayItem[6];
+        fields.setStForm(textArrayItem[1]);
+        fields.setPNum("");
+        fields.setPInd("---- x ----");
+        fields.setPIndInt("---- x ----");
+        fields.setPInd2Zeros("---- xx ----");
+        fields.setPInd3Zeros("---- xxx ----");
+        fields.setOpDate(textArrayItem[3] + "." + textArrayItem[4]);
+        fields.setOpTime(textArrayItem[5] + ":" + textArrayItem[6]);
 
         for (String elem : textArray) {
             if(elem.contains(nv)) {
 
                 String mess = "242";
                 String operation = "ВЫГР  ";
-                VagonHandlerThread.nvStatus = "ПОР ";
-                VagonHandlerThread.cargoWeight = "0";
-                VagonHandlerThread.cargo = "";
+                fields.setNvStatus("ПОР ");
+                fields.setCargoWeight("0");
+                fields.setCargo("");
 
-                operationDataList = VagonHandlerThread.dataToList(nv, nvOwner, mess, operation, elem);
-
+                operationDataList = fields.dataToList(nv, nvOwner, mess, operation, elem);
+                return operationDataList;
             }
         }
 
-        return operationDataList;
+        return null;
 
     }
 
