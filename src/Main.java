@@ -97,7 +97,7 @@ public class Main {
         System.out.println("\nREADING CARGO_CODES...");
         String[] cargoCodesAr = readFileToArray("cargo_codes.txt");
 
-        List<String> fileContents = readFilesForSearching("C:/FILES");
+        List<String> fileContents = readFilesForSearching("FILES");
 
         System.out.println("\nSTART SEARCHING PROCESS\n");
         System.out.println("\t\tWAIT PLEASE...");

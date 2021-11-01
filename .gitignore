@@ -5,3 +5,4 @@
 *.class
 
 *.xlsx
+.idea/workspace.xml
