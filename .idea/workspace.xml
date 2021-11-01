@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d6e8fca-0bd5-415f-a278-156d64ba093d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +94,7 @@
       <workItem from="1635670598739" duration="5871000" />
       <workItem from="1635676533723" duration="630000" />
       <workItem from="1635677351317" duration="517000" />
+      <workItem from="1635739812849" duration="1094000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1635492735197</created>
@@ -205,5 +205,9 @@
     </state>
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1635739815940" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1635677351623" />
+    <state x="551" y="141" key="new project wizard" timestamp="1635747205850">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="141" key="new project wizard/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1635747205850" />
   </component>
 </project>
