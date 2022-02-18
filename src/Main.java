@@ -29,10 +29,10 @@ public class Main {
 
     }
 
-    private static List<String> readFilesForSearching(String pathToFiles) throws IOException {
+    private static List<String> readFilesForSearching() throws IOException {
 
         System.out.println("\nREADING FILES...");
-        File dir = new File(pathToFiles);
+        File dir = new File("FILES");
 
         //List<File> fileLst = new ArrayList<>();
         List<String> fileContents = new ArrayList<>();
@@ -97,7 +97,7 @@ public class Main {
         System.out.println("\nREADING CARGO_CODES...");
         String[] cargoCodesAr = readFileToArray("cargo_codes.txt");
 
-        List<String> fileContents = readFilesForSearching("FILES");
+        List<String> fileContents = readFilesForSearching();
 
         System.out.println("\nSTART SEARCHING PROCESS\n");
         System.out.println("\t\tWAIT PLEASE...");
